@@ -1,0 +1,27 @@
+package KieRule;
+import com.ramjava.drools.Order;
+
+rule "HDFC"
+
+when
+orderObject : Order(cardType="HDFC" && price>10000);
+then
+orderObject.setDiscount(10);
+end;
+
+rule "Mastercard"
+
+when
+orderObject : Order(cardType="Mastercard" && price>15000);
+then
+orderObject.setDiscount(8);
+end;
+
+rule "Visa"
+
+when
+orderObject : Order(cardType="Visa" && price>15000);
+then
+orderObject.setDiscount(15);
+end;
+
